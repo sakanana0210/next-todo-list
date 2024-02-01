@@ -1,113 +1,299 @@
-import Image from "next/image";
+"use client";
+import React, { useState, useEffect } from 'react';
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+interface Task {
+  id: number;
+  name: string;
+  description: string;
+  is_completed: boolean;
+  created_at: string;
+  updated_at: string;
 }
+
+const Home = () => {
+  const [loadDown, setLoadDown] = useState<boolean>(false);
+  const [name, setName] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+  const [selectedTaskId, setSelectedTaskId] = useState<number>(0);
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [alltasks, setAllTasks] = useState<Task[]>([]);
+  const [hideCompleted, setHideCompleted] = useState<boolean>(false);
+  const [dataupdated, setDataUpdated] = useState<boolean>(false);
+
+  const fetchTasks = async (page = 1, type = 'all')  => {
+    try {
+      if(page === 1){
+        setAllTasks([]);
+      }
+      const queryParams = new URLSearchParams({ page: page.toString(), type }).toString();
+      const response = await fetch(`https://wayi.league-funny.com/api/task?${queryParams}`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (response.status === 200) {
+        const data = await response.json();
+        setAllTasks(prevTasks => [...prevTasks, ...data.data]);
+
+        if (data.data.length < 10) {
+          setDataUpdated(true);
+          return;
+        } else {
+          fetchTasks(page + 1, type);
+          return;
+        }
+        
+      } else {
+        alert('系統發生錯誤，請稍後再試。');
+      }
+    } catch (error) {
+      console.error('fetchTasks錯誤:', error);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const now = new Date().toISOString();
+
+    if (!name.trim()){
+      return alert('任務名稱必填，請重新確認。');
+    }
+
+    // 新增任務
+    if(selectedTaskId === 0){
+      try {
+        
+        const taskData = {
+          name: name.trim(),
+          description: description.trim(),
+          is_completed: false,
+          created_at: now,
+          updated_at: now
+        };
+
+        const response = await fetch('https://wayi.league-funny.com/api/task', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(taskData),
+        });
+  
+        if (response.status === 200) {
+          const responseData = await response.json();
+          console.log(responseData);
+          alert('任務創建成功！');
+          setAllTasks(prevTasks => [...prevTasks, responseData.data]);
+          setDataUpdated(true);
+          setName('');
+          setDescription('');
+        } else if (response.status === 400) {
+          alert('請輸入任務名稱、任務名稱長度不得超過10個字、任務描述長度不得超過100個字。');
+        } else if (response.status === 500) {
+          alert('系統發生錯誤，請稍後再試。');
+        }
+  
+      } catch (error) {
+        console.error('handleSubmit錯誤:', error);
+      }
+    } else {
+    
+    // 編輯任務
+      try {
+        const taskData = {
+          name: name.trim(),
+          description: description.trim(),
+          updated_at: now
+        };
+
+        const response = await fetch(`https://wayi.league-funny.com/api/task/${selectedTaskId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(taskData),
+        });
+
+        if (response.status === 200) {
+          alert('任務編輯成功！');
+          setAllTasks(prevTasks => prevTasks.map(task => {
+            if (task.id === selectedTaskId) {
+              return { ...task, ...taskData };
+            }
+            return task;
+          }));
+          setDataUpdated(true);
+          setName('');
+          setDescription('');
+          setSelectedTaskId(0);
+        } else if (response.status === 400) {
+          alert('請輸入任務名稱、任務名稱長度不得超過10個字、任務描述長度不得超過100個字。');
+        } else if (response.status === 404) {
+          alert('任務不存在。');
+          setSelectedTaskId(0);
+        } else if (response.status === 500) {
+          alert('系統發生錯誤，請稍後再試。');
+        }
+      } catch (error) {
+        console.error('handleSubmit錯誤:', error);
+      }
+    }
+
+  };
+
+  // 切換完成/未完成
+  const toggleCompleted = async (task: Task) => {
+    const id = task.id;
+    const response = await fetch('https://wayi.league-funny.com/api/task/' + id, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+
+    if (response.status === 200) {
+      setAllTasks(prevTasks => prevTasks.map(task => {
+        if (task.id === id) {
+          return { ...task, is_completed: !task.is_completed };
+        }
+        return task;
+      }));
+      setDataUpdated(true);
+    } else if (response.status === 404) {
+      alert('任務不存在。');
+    } else if (response.status === 500) {
+      alert('系統發生錯誤，請稍後再試。');
+    }
+  }
+
+  // 選擇編輯任務
+  const handleEdit = (task: Task) => {
+    if (task && task.id) {
+      setSelectedTaskId(task.id);
+      setName(task.name);
+      setDescription(task.description);
+    }
+  }
+
+  // 刪除任務
+  const handleDelete = async (task: Task) => {
+    const id = task.id;
+    const response = await fetch('https://wayi.league-funny.com/api/task/' + id, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+    const filterdTask = alltasks.filter((t) => t.id !== id);
+
+    if (response.status === 204) {
+      alert('刪除成功！');
+      setAllTasks(filterdTask);
+      setDataUpdated(true);
+    } else if (response.status === 404) {
+      alert('任務不存在。');
+    } else if (response.status === 500) {
+      alert('系統發生錯誤，請稍後再試。');
+    }
+  }
+
+  // 切換不隱藏完成任務 or 隱藏完成任務 
+  const handleHideCompleted = () => {
+    setHideCompleted(!hideCompleted);
+  }
+
+  useEffect(()=>{
+    setLoadDown(true);
+  }, []);
+
+  useEffect(()=>{
+    if(loadDown){
+      fetchTasks(1, 'all');
+    }
+  }, [loadDown]);
+
+  useEffect(()=>{
+    if(loadDown && dataupdated ){
+      console.log("dataupdated");
+      if(hideCompleted){
+        const uncompletedTasks = alltasks.filter((task) => task.is_completed === false);
+        setTasks(uncompletedTasks);
+        setDataUpdated(false);
+      } else {
+        setTasks(alltasks);
+        setDataUpdated(false);
+      }
+    } else if (loadDown && hideCompleted){
+      const uncompletedTasks = alltasks.filter((task) => task.is_completed === false);
+      setTasks(uncompletedTasks);
+      setDataUpdated(false);
+    } else if (loadDown){
+      setTasks(alltasks);
+      setDataUpdated(false);
+    }
+  }, [loadDown, dataupdated, hideCompleted]);
+
+
+  return (
+    <div className="container mx-auto px-8 py-10">
+      <h1 className="mb-3 text-3xl font-semibold text-gray-700 ">ToDo List</h1>
+      
+      <form className="space-y-6 bg-white p-4 shadow-md rounded-lg" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700">任務名稱</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="description" className="block text-sm font-medium text-gray-700">任務描述</label>
+          <input
+            type="text"
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          />
+        </div>
+        <div className="flex justify-end">
+          <button type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+            新增/編輯任務
+          </button>
+        </div>
+      </form>
+      <div className="mt-8">
+        <div className="flex justify-between">
+          <h2 className="text-xl font-bold mb-4 text-gray-700">任務清單</h2>
+          <button onClick={handleHideCompleted} className=" mr-4 mb-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-gray-500 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+            {hideCompleted ? '顯示完成任務' : '隱藏完成任務' }
+          </button>
+        </div>
+        <ul className="bg-white shadow-md rounded-lg divide-y divide-gray-200">
+          {tasks.map((task) => (
+            <li key={task.id} className="px-4 py-4 flex justify-between items-center">
+              <div className="space-y-2">
+                <p className="font-bold text-gray-900">{task.name}</p>
+                <p className="text-sm text-gray-700">{task.description}</p>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span onClick={() => toggleCompleted(task)} className={`px-3 inline-flex text-xs leading-6 font-semibold rounded-full ${task.is_completed ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                  {task.is_completed ? '已完成' : '未完成'}
+                </span>
+                <button onClick={() => handleEdit(task)} className="text-indigo-600 hover:text-indigo-900">編輯</button>
+                <button onClick={() => handleDelete(task)} className="text-red-600 hover:text-red-900">刪除</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
